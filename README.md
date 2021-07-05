@@ -21,8 +21,13 @@ Stack  | version |
 
 ## Application Run
 
-
 ## Application GIT branches
-- main
+- com.malik.ithar.main.MainDemo
+
+## Notes:
+Pointcut: execution(modifiers? return-type package? method-name(params) throws?)
+
+@Before("execution(public void saveNewUser(*))")
+
 
 ## Further enhancements 
