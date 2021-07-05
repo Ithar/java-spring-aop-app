@@ -6,12 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    public void saveNewUser(User user) {
+    public void saveUser(User user) {
         System.out.println("DAO: Saving user:" + user.toString());
     }
 
     public User getUserById(int id) {
-        return new User("Jane", "Doe", id);
+        User user = new User("Jane", "Doe", id);
+        System.out.println("DAO: Getting user : " + user.toString());
+        return user;
     }
 
 }

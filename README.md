@@ -25,9 +25,16 @@ Stack  | version |
 - com.malik.ithar.main.MainDemo
 
 ## Notes:
-Pointcut: execution(modifiers? return-type package? method-name(params) throws?)
+
+### Pointcut expressions 
+execution(modifiers? return-type package? method-name(params) throws?)
 
 @Before("execution(public void saveNewUser(*))")
 
+### Prams matching 
+- () - no args
+- (*) - one arg
+- (..) - 0 or more args
+- (package.class) - specific arg 
 
 ## Further enhancements 

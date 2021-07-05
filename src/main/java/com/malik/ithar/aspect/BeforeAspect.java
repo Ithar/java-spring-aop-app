@@ -6,13 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class BeforeAspectLogger {
+public class BeforeAspect {
 
-
-
-    @Before("execution(public void saveNewUser(*))")
+    @Before("execution(public void com.malik.ithar.service.UserService.save*(*))")
     public void beforeSaveNewUserAdvice() {
-        System.out.println("\n====== @Before advice called ======");
+        System.out.println("\n====== @Before 'user save' advice ======");
     }
-
 }
