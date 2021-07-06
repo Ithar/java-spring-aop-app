@@ -48,12 +48,20 @@ public class MainDemo {
         accountService.getAccountByUser(user, true);
     }
 
-    private static void callAfterAdvice(UserService userService) {
+    private static void callAfterAdvice(UserService userService) throws Exception {
 
         List<User> users =  userService.getUsers();
 
         for (User user: users) {
             System.out.println(user.getAge() +" - " + user.getFirstName() +" " + user.getLastName());
         }
+
+        try {
+            userService.getBob(Math.random());
+        } catch (Exception e) {
+            System.out.println("");
+        }
+
+        userService.getSally(Math.random());
     }
 }

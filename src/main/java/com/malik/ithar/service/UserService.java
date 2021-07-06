@@ -35,4 +35,22 @@ public class UserService {
         return users;
     }
 
+    public User getBob(double id) {
+
+        if (id == Math.random()) {
+            System.out.println("Wow that was random ");
+        }
+
+        throw new RuntimeException("User not found");
+    }
+
+    public User getSally(double id) throws Exception {
+
+        if (id == Math.random()) {
+            System.out.println("Wow that was random ");
+        }
+
+        throw new Exception("User not found");
+    }
+
 }
