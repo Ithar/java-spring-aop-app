@@ -7,6 +7,8 @@ import com.malik.ithar.service.AccountService;
 import com.malik.ithar.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.List;
+
 public class MainDemo {
 
     public static void main(String[] args) throws Exception {
@@ -17,9 +19,12 @@ public class MainDemo {
         UserService userService = context.getBean(UserService.class);
         AccountService accountService = context.getBean(AccountService.class);
 
-        callBeforeAdvice(userService, accountService);
+        // callBeforeAdvice(userService, accountService);
 
-        callBeforeAdviceWithJoinPoints(accountService);
+        // callBeforeAdviceWithJoinPoints(accountService);
+
+        callAfterAdvice(userService);
+
         System.out.println("\n\n");
 
         context.close();
@@ -39,10 +44,16 @@ public class MainDemo {
     }
 
     private static void callBeforeAdviceWithJoinPoints(AccountService accountService) throws Exception {
-
         User user = new User("Jane", "Doe", 50);
         accountService.getAccountByUser(user, true);
-
     }
 
+    private static void callAfterAdvice(UserService userService) {
+
+        List<User> users =  userService.getUsers();
+
+        for (User user: users) {
+            System.out.println(user.getAge() +" - " + user.getFirstName() +" " + user.getLastName());
+        }
+    }
 }
