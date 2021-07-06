@@ -9,21 +9,23 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class MainDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(MainConfig.class);
 
-        callBeforeAdvice(context);
+        UserService userService = context.getBean(UserService.class);
+        AccountService accountService = context.getBean(AccountService.class);
+
+        callBeforeAdvice(userService, accountService);
+
+        callBeforeAdviceWithJoinPoints(accountService);
         System.out.println("\n\n");
 
         context.close();
     }
 
-    private static void callBeforeAdvice(AnnotationConfigApplicationContext context) {
-
-        UserService userService = context.getBean(UserService.class);
-        AccountService accountService = context.getBean(AccountService.class);
+    private static void callBeforeAdvice(UserService userService, AccountService accountService) {
 
         User user = new User("Jane", "Doe", 50);
         userService.saveUser(user);
@@ -34,6 +36,13 @@ public class MainDemo {
         accountService.saveAccountRetry(account);
 
         userService.getUserById(10);
+    }
+
+    private static void callBeforeAdviceWithJoinPoints(AccountService accountService) throws Exception {
+
+        User user = new User("Jane", "Doe", 50);
+        accountService.getAccountByUser(user, true);
+
     }
 
 }

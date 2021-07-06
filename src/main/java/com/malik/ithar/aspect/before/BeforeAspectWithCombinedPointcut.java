@@ -1,4 +1,4 @@
-package com.malik.ithar.aspect;
+package com.malik.ithar.aspect.before;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

@@ -15,4 +15,16 @@ public class AccountService {
         System.out.println("DAO: Saving account re-try:" + account.toString());
     }
 
+    public Account getAccountByUser(User user, boolean isPersonalAccount) throws Exception {
+
+        if (user != null && isPersonalAccount) {
+
+            Account account = new Account(3489456L, 400);
+            System.out.println("DAO: Getting account :" + account.toString());
+            return account;
+        }
+
+        throw new Exception();
+    }
+
 }
