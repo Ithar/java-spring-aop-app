@@ -23,7 +23,9 @@ public class MainDemo {
 
         // callBeforeAdviceWithJoinPoints(accountService);
 
-        callAfterAdvice(userService);
+        // callAfterAdvice(userService);
+
+        callAroundAdvice(accountService);
 
         System.out.println("\n\n");
 
@@ -63,5 +65,11 @@ public class MainDemo {
         }
 
         userService.getSally(Math.random());
+    }
+
+    private static void callAroundAdvice(AccountService accountService) {
+
+        accountService.reBalanceAccounts();
+
     }
 }

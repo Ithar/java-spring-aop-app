@@ -15,7 +15,7 @@ public class UserService {
 
     public User getUserById(int id) {
         User user = new User("Jane", "Doe", id);
-        System.out.println("DAO: Getting user : " + user.toString());
+        System.out.println("DAO: Getting user : " + user);
         return user;
     }
 

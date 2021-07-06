@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AfterGetSally {
 
+    // Acts like finally, even if an exception is thrown
+
     @After("execution(com.malik.ithar.model.User getSally(*))")
     public void afterSallyNotFound() {
             System.out.println("\n====== @After 'Sally not found ' ======");

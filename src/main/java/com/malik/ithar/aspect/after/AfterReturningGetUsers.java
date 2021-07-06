@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @Component
 public class AfterReturningGetUsers {
 
+    // Executes if no exception is thrown
+
     @AfterReturning(
             pointcut = "execution(java.util.List getUsers() )",
             returning = "users")
